@@ -98,10 +98,14 @@ export const useCityFetch = () => {
         : `lat=${lat}&lon=${lon}`;
       const response = await fetch(`${URL}getCityList?${urlParams}`);
       const { data } = await response.json();
-      const status = await response.status;
-      const list = data.length === 0 || status !== 200 ? [] : data;
 
-      setSearchList(list);
+      if (lat && lon) {
+        const [{ lat, lon, name, country, cityState = '' }] = data;
+
+        setSelectedCity({ lat, lon, name, country, cityState });
+      } else {
+        setSearchList(data);
+      }
     } catch (error) {
       setError(error);
     }
