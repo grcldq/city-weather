@@ -8,6 +8,7 @@ import {
   HStack,
   StackDivider,
   Heading,
+  Spinner,
 } from '@chakra-ui/react';
 import { FiSun, FiMoon, FiCloudDrizzle } from 'react-icons/fi';
 
@@ -56,7 +57,12 @@ const Forecast = ({ data = [] }) => {
                 borderRadius={4}>
                 <VStack spacing={1}>
                   <Text>{formatUnixDate(dt)}</Text>
-                  <Image objectFit='cover' src={imgUrl} alt='weather-img' />
+                  <Image
+                    objectFit='contain'
+                    src={imgUrl}
+                    alt='weather-img'
+                    fallback={<Spinner />}
+                  />
                   <Box>
                     <IconWithLabel icon={FiSun} label={`${morn}°c`} />
                     <IconWithLabel icon={FiMoon} label={`${night}°c`} />
