@@ -76,7 +76,7 @@ function App() {
           ) : (
             <>
               <CityDetails data={state} error={error} />
-              <Divider py={3} variant="dashed" />
+              {state.city && <Divider py={3} variant="dashed" />}
               <Forecast data={forecast} timezone={timezone} />
             </>
           )}
