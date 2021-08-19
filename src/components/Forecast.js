@@ -7,6 +7,7 @@ import {
   Icon,
   HStack,
   StackDivider,
+  Heading,
 } from '@chakra-ui/react';
 import { FiSun, FiMoon, FiCloudDrizzle } from 'react-icons/fi';
 
@@ -19,6 +20,7 @@ const Forecast = ({ data = [] }) => {
   return (
     <>
       <VStack>
+        <Heading color='orange.200'>7-Day Forecast</Heading>
         <HStack
           divider={<StackDivider borderColor='gray.500' />}
           color='gray.100'>

@@ -3,6 +3,7 @@ import {
   Box,
   ChakraProvider,
   Container,
+  Divider,
   Heading,
   HStack,
   Icon,
@@ -50,7 +51,7 @@ function App() {
           </Box>
         </HStack>
         <VStack spacing={6} align='stretch' pb={8}>
-          <Box height={20}>
+          <Box height={16}>
             <Search
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}
@@ -75,6 +76,7 @@ function App() {
           ) : (
             <>
               <CityDetails data={state} error={error} />
+              <Divider py={3} variant="dashed" />
               <Forecast data={forecast} timezone={timezone} />
             </>
           )}
