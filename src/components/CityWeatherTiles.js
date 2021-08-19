@@ -14,7 +14,7 @@ import { formatUnixTime } from '../helpers/helpers';
 import IconWithLabel from './IconWithLabel';
 
 const CityWeatherTiles = ({ data }) => {
-  const { temp, feelsLike, sunrise, sunset, timezone, rain } = data;
+  const { temp, feelsLike, sunrise, sunset, timezone, rain = 0 } = data;
   const sunTile = (icon, time, bg, color) => (
     <Box
       color={color}
@@ -23,7 +23,11 @@ const CityWeatherTiles = ({ data }) => {
       borderRadius={4}
       height='inherit'
       width='inherit'>
-      <IconWithLabel icon={icon} label={formatUnixTime(time, timezone)} />
+      <IconWithLabel
+        icon={icon}
+        label={formatUnixTime(time, timezone)}
+        justify='center'
+      />
     </Box>
   );
 
@@ -43,7 +47,8 @@ const CityWeatherTiles = ({ data }) => {
         px={4}
         py={6}
         borderRadius={4}
-        height='full'>
+        height='full'
+        mb={[2, 2, 2, 0]}>
         <HStack height='inherit' justifyContent='center'>
           <Icon as={FiThermometer} fontSize='4xl' />
           <VStack>

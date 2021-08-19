@@ -51,7 +51,7 @@ function App() {
           </Box>
         </HStack>
         <VStack spacing={6} align='stretch' pb={8}>
-          <Box height={16}>
+          <Box height={12}>
             <Search
               searchTerm={searchTerm}
               setSearchTerm={setSearchTerm}

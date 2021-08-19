@@ -43,7 +43,7 @@ const Forecast = ({ data = [] }) => {
           ]}
           gap={1}>
           {data.map((item, index) => {
-            const { dt, temp, rain, imgUrl } = item;
+            const { dt, temp, rain = 0, imgUrl } = item;
             const { morn, night } = temp;
 
             return (
@@ -60,7 +60,7 @@ const Forecast = ({ data = [] }) => {
                   <Box>
                     <IconWithLabel icon={FiSun} label={`${morn}°c`} />
                     <IconWithLabel icon={FiMoon} label={`${night}°c`} />
-                    {rain && <IconWithLabel icon={FiCloudDrizzle} label={`${rain}%`} />}
+                    <IconWithLabel icon={FiCloudDrizzle} label={`${rain}%`} />
                   </Box>
                 </VStack>
               </Box>

@@ -61,11 +61,10 @@ const CityDetails = ({ data, error }) => {
           </Flex>
           <Image
             boxSize='120px'
-            objectFit='cover'
+            objectFit='contain'
             src={imgUrl}
             alt='weather-img'
             fallback={<Spinner />}
-            flex='1'
           />
         </HStack>
         <GridItem colSpan={[1, 1, 1, 2]}>
