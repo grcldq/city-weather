@@ -58,7 +58,7 @@ const Forecast = ({ data = [] }) => {
                   <Box>
                     <IconWithLabel icon={FiSun} label={`${morn}°c`} />
                     <IconWithLabel icon={FiMoon} label={`${night}°c`} />
-                    <IconWithLabel icon={FiCloudDrizzle} label={`${rain}%`} />
+                    {rain && <IconWithLabel icon={FiCloudDrizzle} label={`${rain}%`} />}
                   </Box>
                 </VStack>
               </Box>
