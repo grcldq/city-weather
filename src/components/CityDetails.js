@@ -8,6 +8,7 @@ import {
   Flex,
   Heading,
   GridItem,
+  Spinner,
 } from '@chakra-ui/react';
 import { formatUnixDate, formatUnixTime } from '../helpers/helpers';
 import CityWeatherTiles from './CityWeatherTiles';
@@ -21,12 +22,13 @@ const CityDetails = ({ data, error }) => {
     temp,
     feelsLike,
     city,
+    cityState,
     country,
     imgUrl,
-    timezone,
     rain,
     sunrise,
     sunset,
+    timezone,
   } = data;
   const date = formatUnixDate(undefined, {
     month: 'short',
@@ -49,9 +51,10 @@ const CityDetails = ({ data, error }) => {
           <Flex
             flexDirection='column'
             alignItems='flex-start'
-            justifyContent='center'>
+            justifyContent='center'
+            flex='1'>
             <Heading fontSize='3xl' color='yellow.400'>
-              {city}, {country}
+              {city}, {cityState ? `${cityState}, ` : null}{country}
             </Heading>
             <Text fontSize='md'>{date}</Text>
             <Text fontSize='sm'>As of {time}</Text>
@@ -61,6 +64,8 @@ const CityDetails = ({ data, error }) => {
             objectFit='cover'
             src={imgUrl}
             alt='weather-img'
+            fallback={<Spinner />}
+            flex='1'
           />
         </HStack>
         <GridItem colSpan={[1, 1, 1, 2]}>

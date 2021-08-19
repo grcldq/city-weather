@@ -6,17 +6,18 @@ const Footer = () => {
     <Box
       bg='gray.800'
       bottom='0'
-      fontSize='sm'
+      fontSize={['xs', 'sm']}
       left='0'
       pos='fixed'
       width='full'>
+      <Text as='' color='gray.50' pt={3} textAlign='center'>
+        Developed by Geraldine Atayan
+      </Text>
       <HStack
         color='gray.50'
         divider={<StackDivider borderColor='gray.500' />}
-        px={7}
-        py={4}
+        pb={3}
         justifyContent='center'>
-        <Text as=''>Developed by Geraldine Atayan</Text>
         <Text as='em' color='orange.200'>
           <a
             href='https://github.com/grcldq/city-weather'

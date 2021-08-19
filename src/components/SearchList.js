@@ -2,7 +2,7 @@ import { Box, StackDivider, Text, VStack } from '@chakra-ui/react';
 import React from 'react';
 
 const SearchList = ({ searchList = [], setSelectedCity }) => {
-  if (searchList.length === 0) return null;
+  if (!searchList[0]) return null;
 
   return (
     <VStack
